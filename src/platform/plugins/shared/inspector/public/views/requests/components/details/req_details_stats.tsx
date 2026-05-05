@@ -54,7 +54,7 @@ const StatRow = ({ stat, href }: { stat: RequestDetailsStatRow; href?: string })
       </EuiTableRowCell>
       <EuiTableRowCell data-test-subj={`inspector.statistics.${stat.id}`}>
         {href ? (
-          <EuiLink target="_blank" href={href} data-test-subj={`inspector.statistics.${stat.id}`}>
+          <EuiLink target="_blank" href={href}>
             {stat.value}
           </EuiLink>
         ) : (
@@ -77,9 +77,9 @@ export const RequestDetailsStats = ({ request }: DetailViewProps) => {
       })
     : undefined;
 
-  const sortedStats = Object.keys(stats)
+  const sortedStats: RequestDetailsStatRow[] = Object.keys(stats)
     .sort()
-    .map((id) => ({ id, ...stats[id] } as RequestDetailsStatRow));
+    .map((id) => ({ id, ...stats[id] }));
 
   return (
     <EuiTable responsiveBreakpoint={false}>
