@@ -48,7 +48,7 @@ const StatRow = ({ stat, href }: { stat: RequestDetailsStatRow; href?: string })
               content={stat.description}
             />
           ) : (
-            <EuiIcon type="empty" aria-hidden />
+            <EuiIcon type="empty" aria-hidden={true} />
           )}
         </span>
       </EuiTableRowCell>
